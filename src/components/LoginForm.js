@@ -27,9 +27,11 @@ const LoginForm = ({setIsLoggedIn}) => {
     }
     return (
         <div>
-            <form onSubmit={submitHandler}>
-                <label>
-                    <p>Email Address<sup>*</sup></p>
+            <form onSubmit={submitHandler}
+            className="flex flex-col w-full gap-y-4 mt-6"
+            >
+                <label >
+                    <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">Email Address<sup className="text-[#c40e1a]">*</sup></p>
                     <input
                         required
                         type="email"
@@ -37,12 +39,13 @@ const LoginForm = ({setIsLoggedIn}) => {
                         onChange={changeHandler}
                         placeholder="Enter email id"
                         name="email"
+                        className="bg-[#1c1a1a] rounded-[0.5rem] text-white w-full p-[12px]"
                     />
                 </label>
 
 
-                <label>
-                    <p>Password<sup>*</sup></p>
+                <label className="w-full relative">
+                    <p className="text-[0.875rem] text-white mb-1 leading-[1.375rem]">Password<sup className="text-[#c40e1a]">*</sup></p>
                     <input
                         required
                         type={showPassword ? ("text") : ("password")}
@@ -50,20 +53,23 @@ const LoginForm = ({setIsLoggedIn}) => {
                         onChange={changeHandler}
                         placeholder="Enter Password"
                         name="password"
+                        className="bg-[#1c1a1a] rounded-[0.5rem] text-white w-full p-[12px]"
                     />
-                    <span onClick={() => setShowPassword((prev) => !prev)}>
+                    <span 
+                    className="absolute right-3 top-[38px] cursor-pointer"
+                    onClick={() => setShowPassword((prev) => !prev)}>
                         {
-                            showPassword ? (<AiOutlineEyeInvisible />) : (<AiOutlineEye />)
+                            showPassword ? (<AiOutlineEyeInvisible fontSize={24} fill="#AFB2BF"/>) : (<AiOutlineEye fontSize={24} fill="#AFB2BF"/>)
                         }
                     </span>
                     <Link to="#">
-                        <p>
+                        <p className="text-xs text-blue-100 ml-auto max-w-max">
                             Forgot Password
                         </p>
                     </Link>
                 </label>
 
-                <button>
+                <button className="bg-[#fae505] rounded-[8px] font-medium text-black px-[12px] py-[8px] mt-5">
                     Sign In
                 </button>
 
